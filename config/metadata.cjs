@@ -11,7 +11,6 @@ module.exports = {
     cn: "中文名",
     en: "english name",
   },
-  namespace: "https://trim21.me/",
   version: version,
   author: author,
   source: repository.url,
@@ -20,7 +19,5 @@ module.exports = {
   require: [
     `https://cdn.jsdelivr.net/npm/jquery@${dependencies.jquery}/dist/jquery.min.js`,
   ],
-  grant: ["GM.xmlHttpRequest"],
-  connect: ["httpbin.org"],
   "run-at": "document-end",
 };
