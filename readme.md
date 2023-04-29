@@ -12,8 +12,8 @@ Just [use this git repo as a template](https://github.com/Trim21/webpack-userscr
 
 Now you will see 2 files in `./dist/`
 
--   `dist/index.dev.user.js`: **You should install this userscript in your browser.** It's a simple loader that load `dist/index.debug.js` on matched web page.
--   `dist/index.debug.js`: This is the development build with `eval-source-map`. It will be automatically loaded by `dist/index.dev.user.js` via `@require file://.../dist/index.debug.js` metadata, **Don't add it to your userscript manager.**
+-   `dist/{userscript-name}.dev.user.js`: **You should install this userscript in your browser.** It's a simple loader that load `dist/{userscript-name}.debug.js` on matched web page.
+-   `dist/{userscript-name}.debug.js`: This is the development build with `eval-source-map`. It will be automatically loaded by `dist/{userscript-name}.dev.user.js` via `@require file://.../dist/{userscript-name}.debug.js` metadata, **Don't add it to your userscript manager.**
 
 4. edit [src/index.ts](./src/index.ts), you can even import css or less files. You can use scss if you like.
 5. go wo <https://www.example.com/> and open console, you'll see it's working.
@@ -23,7 +23,7 @@ livereload is default enabled, use [this Chrome extension](https://chrome.google
 ### NOTICE
 
 Everytime you change your metadata config,
-you'll have to restart webpack server and install newly generated `dist/index.dev.user.js` UserScript in your browser again.
+you'll have to restart webpack server and install newly generated `dist/{userscript-name}.dev.user.js` UserScript in your browser again.
 
 ## used package
 
@@ -61,7 +61,7 @@ just install packages with npm and import them in your code, webpack will take c
 npm run build
 ```
 
-`dist/index.prod.user.js` is the final script. you can manually copy it to greasyfork for deploy.
+`dist/{userscript-name}.user.js` is the final script. you can manually copy it to greasyfork for deploy.
 
 ### Minify
 

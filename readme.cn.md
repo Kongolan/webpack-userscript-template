@@ -10,8 +10,8 @@
 
 在 `dist/` 文件夹会生成两个文件
 
--   `dist/index.dev.user.js`: **请在浏览器中安装这个油猴脚本** 这个文件不包含有意义的 js 脚本，但是包含了全部的元数据和额外的 `@require file://.../dist/index.debug.js`。
--   `dist/index.debug.js`: 这是在 webpack 中启用了 `eval-source-map` 选项之后的打包产物。**不要在浏览器中安装这个脚本**。
+-   `dist/{userscript-name}.dev.user.js`: **请在浏览器中安装这个油猴脚本** 这个文件不包含有意义的 js 脚本，但是包含了全部的元数据和额外的 `@require file://.../dist/{userscript-name}.debug.js`。
+-   `dist/{userscript-name}.debug.js`: 这是在 webpack 中启用了 `eval-source-map` 选项之后的打包产物。**不要在浏览器中安装这个脚本**。
 
 4. 修改 [src/index.ts](./src/index.ts) 。如果你需要的话你可以引入 css 或者 less 文件。你也可以通过设置 webpack 来引入 scss。
 5. 在 <https://www.example.com/> 并且打开控制台，你可以看到用户脚本被运行。
@@ -48,7 +48,7 @@ https://github.com/trim21/webpack-userscript-template/blob/master/src/index.ts
 npm run build
 ```
 
-`dist/index.prod.user.js` 就是最终打包出来的 UserScript。
+`dist/{userscript-name}.user.js` 就是最终打包出来的 UserScript。
 
 ## 使用其他打包器
 
@@ -60,7 +60,7 @@ npm run build
 
 ## deploy
 
-[github actions](./.github/workflows/nodejs.yml#L68) 会自动在每个 tag 把`dist/index.prod.user.js`部属到`gh-pages`分支的根目录去。
+[github actions](./.github/workflows/nodejs.yml#L68) 会自动在每个 tag 把`dist/{userscript-name}.user.js`部属到`gh-pages`分支的根目录去。
 
 [example](https://github.com/Trim21/webpack-userscript-template/tree/gh-pages)
 
